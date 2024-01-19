@@ -14,6 +14,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   // subscription!: Subscription;
   // subscription?: Subscription;
+  sortCriteria: string = 'productCode';
+  sortOrder: string = 'asc';
+
 
   constructor(private productSvc: ProductService) {}
   
@@ -32,5 +35,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.subscription?.unsubscribe();
   }
 
+  sortBy(column: string): void {
+    if(column == this.sortCriteria){
+      this.sortOrder = (this.sortOrder == "desc") ? "asc" : "desc";
+    }
+    this.sortCriteria = column;
+  }
 
 }

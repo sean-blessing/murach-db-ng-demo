@@ -11,6 +11,8 @@ export class LineItemListComponent implements OnInit, OnDestroy{
   title: string = "LineItem-List";
   lis: LineItem[] = [];
   subscription: Subscription | undefined;
+  sortCriteria: string = 'invoiceId';
+  sortOrder: string = 'asc';
 
   constructor(private lineItemSvc: LineItemService) {}
 
@@ -28,6 +30,14 @@ export class LineItemListComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  sortBy(column: string): void {
+    console.log('li sortBy called: ', column);
+    if(column == this.sortCriteria){
+      this.sortOrder = (this.sortOrder == "desc") ? "asc" : "desc";
+    }
+    this.sortCriteria = column;
   }
 
 }

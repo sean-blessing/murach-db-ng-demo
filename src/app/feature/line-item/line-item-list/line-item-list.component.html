@@ -7,15 +7,13 @@
     </section>
     <table class="table table-striped table-bordered table-hover table-sm">
         <thead class="thead-dark">
-            <th scope="col">ID</th>
-            <th scope="col">Invoice ID</th>
-            <th scope="col">Product</th>
-            <th scope="col">Quantity</th>
+            <th scope="col"><a (click)="sortBy('invoiceId')">Invoice ID</a></th>
+            <th scope="col"><a (click)="sortBy('product.productCode')">Product</a></th>
+            <th scope="col"><a (click)="sortBy('quantity')">Quantity</a></th>
             <th scope="col">Action</th>
         </thead>
         <tbody>
-            <tr *ngFor="let li of lis">
-                <td>{{li.id}}</td>
+            <tr *ngFor="let li of lis | sort:sortCriteria:sortOrder">
                 <td>{{li.invoiceId}}</td>
                 <td>{{li.product.description}}</td>
                 <td>{{li.quantity}}</td>
