@@ -52,8 +52,8 @@ export class LineItemCreateComponent implements OnInit, OnDestroy{
   }
 
   testChange(event: any) {
-    console.log(event);
-    console.log(this.lineItem.product);
+    // console.log(event);
+    // console.log(this.lineItem.product);
   }
 
 

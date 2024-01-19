@@ -18,6 +18,10 @@ export class LineItemListComponent implements OnInit, OnDestroy{
     this.subscription = this.lineItemSvc.list().subscribe({
       next: (resp) => {
         this.lis = resp;
+        // console.log("li list, lis:");
+        // for (let li of this.lis) {
+        //   console.log(li);
+        // }
       }
     });
   }

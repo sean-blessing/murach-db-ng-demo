@@ -24,11 +24,11 @@ export class LineItemService {
   }
 
   create(lineItem: LineItem): Observable<LineItem> {
-    return this.http.post(URL + '/', LineItem) as Observable<LineItem>;
+    return this.http.post(URL + '/', lineItem) as Observable<LineItem>;
   }
   
-  edit(LineItem: LineItem): Observable<LineItem> {
-    return this.http.put(URL + '/', LineItem) as Observable<LineItem>;
+  edit(lineItem: LineItem): Observable<LineItem> {
+    return this.http.put(URL + '/', lineItem) as Observable<LineItem>;
   }
 
   delete(id: number): Observable<LineItem> {
